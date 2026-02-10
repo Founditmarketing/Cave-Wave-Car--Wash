@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Droplets } from 'lucide-react';
+import { X, MapPin } from 'lucide-react';
 
 interface LocationModalProps {
   isOpen: boolean;

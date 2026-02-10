@@ -11,6 +11,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { LocationModal } from './components/LocationModal';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Ticket } from 'lucide-react';
+import { BubbleExplosion } from './components/BubbleExplosion';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -28,15 +29,19 @@ const App: React.FC = () => {
     // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
-
-      // Show modal shortly after loading finishes
-      setTimeout(() => {
-        setShowLocationModal(true);
-      }, 500);
-
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Show modal shortly after loading finishes
+  useEffect(() => {
+    if (!loading) {
+      const timer = setTimeout(() => {
+        setShowLocationModal(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
 
   const handleModalClose = () => {
     setShowLocationModal(false);
@@ -49,9 +54,10 @@ const App: React.FC = () => {
     <div className="font-sans text-slate-800 bg-white min-h-screen relative selection:bg-cwPink selection:text-white">
       <AnimatePresence>
         {loading && <LoadingScreen />}
-        {showLocationModal && <LocationModal onClose={handleModalClose} />}
         {showExplosion && <BubbleExplosion />}
       </AnimatePresence>
+
+      <LocationModal isOpen={showLocationModal} onClose={handleModalClose} />
 
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cwCyan to-cwPink origin-left z-[60]"

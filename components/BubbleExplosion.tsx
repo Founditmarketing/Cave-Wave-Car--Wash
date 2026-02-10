@@ -36,8 +36,8 @@ export const BubbleExplosion: React.FC<BubbleExplosionProps> = ({ onComplete }) 
                     transition={{
                         duration: 0.8 + Math.random() * 0.4,
                         ease: "easeOut",
-                        onComplete: p.id === 0 ? onComplete : undefined // Signal completion on first particle
                     }}
+                    onAnimationComplete={p.id === 0 ? onComplete : undefined}
                     style={{
                         width: p.size,
                         height: p.size,
