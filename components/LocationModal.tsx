@@ -53,7 +53,7 @@ export const LocationModal: React.FC<LocationModalProps> = ({ isOpen, onClose })
                 <img src="/logo.png" alt="Cave Wave" className="w-48 h-auto object-contain drop-shadow-lg" />
               </div>
 
-              <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-medium uppercase text-slate-900 mb-4 leading-tight">
                 Save money by signing up for one of our monthly packages!
               </h2>
 

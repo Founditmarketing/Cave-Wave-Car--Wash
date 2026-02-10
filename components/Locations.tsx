@@ -31,8 +31,8 @@ export const Locations: React.FC = () => {
     <section className="py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-cwCyan font-bold tracking-widest uppercase mb-4 text-lg">Our Locations</h2>
-          <h3 className="text-5xl md:text-7xl font-extrabold text-slate-900">Find Us Near You</h3>
+          <h2 className="text-cwCyan font-medium tracking-widest uppercase mb-4 text-lg">Our Locations</h2>
+          <h3 className="text-5xl md:text-7xl font-medium uppercase text-slate-900">Find Us Near You</h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
@@ -52,7 +52,7 @@ export const Locations: React.FC = () => {
                   alt={loc.city}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <h3 className="absolute bottom-6 left-6 text-4xl font-bold text-white z-20">{loc.city}</h3>
+                <h3 className="absolute bottom-6 left-6 text-4xl font-medium uppercase text-white z-20">{loc.city}</h3>
               </div>
 
               <div className="p-8 bg-white space-y-6">

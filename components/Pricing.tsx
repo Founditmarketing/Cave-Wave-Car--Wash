@@ -39,23 +39,23 @@ export const Pricing: React.FC = () => {
 
   return (
     <section className="py-32 bg-slate-50 relative overflow-hidden">
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-cwPink font-bold tracking-widest uppercase mb-4 text-lg">Wash Packages</h2>
-          <h3 className="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6">Choose Your Wave</h3>
+          <h2 className="text-cwPink font-medium tracking-widest uppercase mb-4 text-lg">Wash Packages</h2>
+          <h3 className="text-5xl md:text-7xl font-medium uppercase text-slate-900 mb-6">Choose Your Wave</h3>
           <p className="mt-4 text-slate-600 text-xl max-w-2xl mx-auto">Join the Monthly Unlimited Club for the price of 2 washes and keep your car shining all month long!</p>
         </div>
 
         {/* Toggle Switch */}
         <div className="flex justify-center items-center gap-6 mb-16">
           <span className={`font-bold text-xl cursor-pointer transition-colors ${!isMonthly ? 'text-slate-900' : 'text-slate-400'}`} onClick={() => setIsMonthly(false)}>Single Wash</span>
-          <button 
+          <button
             onClick={() => setIsMonthly(!isMonthly)}
             className="relative w-24 h-12 rounded-full bg-slate-200 p-1 transition-colors duration-300 focus:outline-none shadow-inner"
             style={{ backgroundColor: isMonthly ? '#06d9f5' : '#cbd5e1' }}
           >
-            <motion.div 
+            <motion.div
               className="w-10 h-10 bg-white rounded-full shadow-md"
               layout
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -67,8 +67,8 @@ export const Pricing: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
           {packages.map((pkg, index) => {
-             const isPremium = pkg.isPremium;
-             return (
+            const isPremium = pkg.isPremium;
+            return (
               <motion.div
                 key={pkg.name}
                 initial={{ opacity: 0, y: 30 }}
@@ -76,11 +76,10 @@ export const Pricing: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
-                className={`relative rounded-[2rem] p-8 transition-all duration-300 flex flex-col h-full ${
-                  isPremium 
-                    ? 'bg-slate-900 text-white shadow-2xl border-4 border-cwCyan lg:-mt-6 z-10 pb-12' 
+                className={`relative rounded-[2rem] p-8 transition-all duration-300 flex flex-col h-full ${isPremium
+                    ? 'bg-slate-900 text-white shadow-2xl border-4 border-cwCyan lg:-mt-6 z-10 pb-12'
                     : 'bg-white text-slate-900 shadow-xl hover:shadow-2xl border-2 border-cwCyan/20'
-                }`}
+                  }`}
               >
                 {isPremium && (
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-cwCyan to-cwPink text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2 whitespace-nowrap">
@@ -89,7 +88,7 @@ export const Pricing: React.FC = () => {
                 )}
 
                 <div className="mb-8 text-center">
-                  <h4 className={`text-2xl font-bold mb-4 ${isPremium ? 'text-cwCyan' : 'text-slate-800'}`}>
+                  <h4 className={`text-2xl font-medium uppercase mb-4 ${isPremium ? 'text-cwCyan' : 'text-slate-800'}`}>
                     {pkg.name}
                   </h4>
                   <div className="flex items-baseline justify-center gap-1 h-14">
@@ -97,7 +96,7 @@ export const Pricing: React.FC = () => {
                       {isMonthly ? '/mo' : '/wash'}
                     </span>
                     <AnimatePresence mode="wait">
-                      <motion.span 
+                      <motion.span
                         key={isMonthly ? 'monthly' : 'single'}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -134,11 +133,10 @@ export const Pricing: React.FC = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
-                    isPremium
+                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${isPremium
                       ? 'bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right transition-[background-position] duration-500 text-white shadow-lg shadow-cwCyan/25'
                       : 'bg-slate-100 text-slate-800 hover:bg-slate-200'
-                  }`}
+                    }`}
                 >
                   Select {isMonthly ? 'Plan' : 'Wash'}
                 </motion.button>

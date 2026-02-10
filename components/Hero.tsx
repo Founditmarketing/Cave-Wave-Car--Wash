@@ -38,7 +38,7 @@ export const Hero: React.FC = () => {
             className="flex flex-col items-center w-full"
           >
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight mb-8 tracking-tight drop-shadow-2xl whitespace-normal lg:whitespace-nowrap break-words italic px-8 py-2 overflow-visible">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium uppercase text-white leading-tight mb-8 tracking-tight drop-shadow-2xl whitespace-normal lg:whitespace-nowrap break-words italic px-8 py-2 overflow-visible">
               Catch The Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-cwCyan to-cwPink filter drop-shadow-lg pr-4">Wave</span>
             </h1>
 
@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
 
         {/* Quick Package Preview - Attached to Bottom */}
         <div className="w-full max-w-5xl mx-auto px-4 relative z-20 flex flex-col items-center">
-          <span className="text-white/80 text-sm md:text-base font-bold uppercase tracking-widest mb-4 italic drop-shadow-md">
+          <span className="text-white/80 text-sm md:text-base font-medium uppercase tracking-widest mb-4 italic drop-shadow-md">
             Check out our packages
           </span>
           <QuickPackageCarousel />

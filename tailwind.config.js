@@ -15,7 +15,8 @@ export default {
         cwDark: '#1a1a2e',
       },
       fontFamily: {
-        sans: ['"Russo One"', 'sans-serif'],
+        sans: ['"Outfit"', 'sans-serif'],
+        russo: ['"Russo One"', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
