@@ -72,42 +72,42 @@ export const CarDiagram: React.FC = () => {
 
         {/* Diagram Container */}
         <div className="relative w-full rounded-3xl bg-[#0f1623] border border-slate-800 shadow-2xl overflow-hidden">
-            
+
           {/* Background Grid - Technical feel */}
           <div className="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(10,1fr)] opacity-[0.1] pointer-events-none">
-              {Array.from({ length: 200 }).map((_, i) => (
-                  <div key={i} className="border-[0.5px] border-cwCyan/30"></div>
-              ))}
+            {Array.from({ length: 200 }).map((_, i) => (
+              <div key={i} className="border-[0.5px] border-cwCyan/30"></div>
+            ))}
           </div>
 
           <div className="relative w-full aspect-[16/9] md:aspect-[2.2/1] flex items-center justify-center p-8 md:p-12">
-            
+
             {/* Main Car Image - Sleek Side Profile */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
               className="relative z-10 w-full max-w-5xl"
             >
-               {/* Scanning Laser Effect */}
-               <motion.div 
-                 className="absolute top-[-20%] bottom-[-20%] w-1 bg-cwCyan/50 shadow-[0_0_30px_3px_rgba(6,217,245,0.6)] z-20 pointer-events-none"
-                 animate={{ left: ['0%', '100%', '0%'] }}
-                 transition={{ duration: 6, ease: "linear", repeat: Infinity }}
-               />
-               <motion.div 
-                 className="absolute top-[-20%] bottom-[-20%] w-32 bg-gradient-to-r from-transparent via-cwCyan/10 to-transparent z-10 pointer-events-none mix-blend-screen"
-                 animate={{ left: ['-5%', '95%', '-5%'] }}
-                 transition={{ duration: 6, ease: "linear", repeat: Infinity }}
-               />
+              {/* Scanning Laser Effect */}
+              <motion.div
+                className="absolute top-[-20%] bottom-[-20%] w-1 bg-cwCyan/50 shadow-[0_0_30px_3px_rgba(6,217,245,0.6)] z-20 pointer-events-none"
+                animate={{ left: ['0%', '100%', '0%'] }}
+                transition={{ duration: 6, ease: "linear", repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute top-[-20%] bottom-[-20%] w-32 bg-gradient-to-r from-transparent via-cwCyan/10 to-transparent z-10 pointer-events-none mix-blend-screen"
+                animate={{ left: ['-5%', '95%', '-5%'] }}
+                transition={{ duration: 6, ease: "linear", repeat: Infinity }}
+              />
 
-               <img 
-                 src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=1200" 
-                 alt="Vehicle Schematic" 
-                 className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-90 mix-blend-screen"
-               />
+              <img
+                src="/car-diagram.png"
+                alt="Vehicle Schematic"
+                className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-90 mix-blend-screen"
+              />
             </motion.div>
-            
+
             {/* Interactive Points */}
             {points.map((point) => (
               <motion.button
@@ -144,7 +144,7 @@ export const CarDiagram: React.FC = () => {
                     <span className="text-3xl filter drop-shadow-[0_0_10px_rgba(253,23,247,0.5)]">{activePoint.icon}</span>
                     <h4 className="text-xl font-bold text-white">{activePoint.title}</h4>
                   </div>
-                  <button 
+                  <button
                     onClick={(e) => { e.stopPropagation(); setActivePoint(null); }}
                     className="p-1 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
                   >
@@ -155,8 +155,8 @@ export const CarDiagram: React.FC = () => {
                   {activePoint.description}
                 </p>
                 <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
-                   <span className="text-[10px] font-bold text-cwCyan uppercase tracking-widest">Analysis Complete</span>
-                   <button className="text-xs font-bold text-cwPink hover:text-white transition-colors uppercase tracking-wider">Full Specs +</button>
+                  <span className="text-[10px] font-bold text-cwCyan uppercase tracking-widest">Analysis Complete</span>
+                  <button className="text-xs font-bold text-cwPink hover:text-white transition-colors uppercase tracking-wider">Full Specs +</button>
                 </div>
               </motion.div>
             )}
