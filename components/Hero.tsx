@@ -38,9 +38,17 @@ export const Hero: React.FC = () => {
             className="flex flex-col items-center w-full"
           >
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-oswald font-bold uppercase text-white leading-tight mb-8 tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] whitespace-normal lg:whitespace-nowrap break-words italic px-8 py-2 overflow-visible" style={{ textShadow: '2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' }}>
+            <motion.h1
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium uppercase text-white leading-tight mb-8 tracking-wide drop-shadow-2xl whitespace-normal lg:whitespace-nowrap break-words italic px-8 py-2 overflow-visible"
+              style={{
+                textShadow: '1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
+              }}
+            >
               Catch The Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-cwCyan to-cwPink filter drop-shadow-lg pr-4">Wave</span>
-            </h1>
+            </motion.h1>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a

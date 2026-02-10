@@ -111,9 +111,16 @@ export const CarDiagram: React.FC = () => {
                       initial={{ opacity: 0, y: 10, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                      className="fixed left-4 right-4 bottom-4 md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-auto md:mt-4 w-auto md:w-80 bg-slate-900/95 backdrop-blur-xl p-6 rounded-2xl border border-cwCyan/30 shadow-2xl z-50 text-left"
+                      className="fixed left-4 right-4 bottom-4 md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-auto md:mt-4 w-auto md:w-80 bg-slate-900/95 backdrop-blur-xl p-6 rounded-2xl border border-cwCyan/30 shadow-2xl z-[100] text-left max-h-[60vh] overflow-y-auto"
                     >
-                      <div className="flex items-center gap-3 mb-3">
+                      <button
+                        onClick={(e) => { e.stopPropagation(); setActivePoint(null); }}
+                        className="absolute top-4 right-4 p-1 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+
+                      <div className="flex items-center gap-3 mb-3 pr-8">
                         <div className="text-2xl">{point.icon}</div>
                         <div>
                           <h4 className="text-cwCyan font-bold text-lg leading-none">{point.title}</h4>
@@ -123,7 +130,7 @@ export const CarDiagram: React.FC = () => {
                       <p className="text-slate-300 text-sm leading-relaxed">{point.description}</p>
 
                       {/* Decorative Corner */}
-                      <div className="absolute top-0 right-0 p-2">
+                      <div className="absolute top-0 right-0 p-2 pointer-events-none">
                         <div className="w-2 h-2 bg-cwCyan rounded-full opacity-50"></div>
                       </div>
                     </motion.div>
