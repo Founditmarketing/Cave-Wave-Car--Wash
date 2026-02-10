@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { QuickPackageCarousel } from './QuickPackageCarousel';
 
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
@@ -25,42 +26,49 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
-        <motion.div
-          style={{ y: yText, opacity }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+      <div className="relative z-10 w-full h-full flex flex-col justify-between pt-20 pb-4">
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold text-white leading-tight mb-8 tracking-tight drop-shadow-2xl">
-            The Best Wash <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cwCyan to-cwPink filter drop-shadow-lg">
-              In The Universe.
-            </span>
-          </h1>
+        {/* Top Content: Title & Buttons - Biased towards bottom */}
+        <div className="flex-grow flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 text-center pt-12">
+          <motion.div
+            style={{ y: yText, opacity }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center w-full"
+          >
 
-          <p className="text-xl md:text-2xl text-slate-200 font-medium max-w-2xl mx-auto mb-12 drop-shadow-md">
-            Experience the future of clean with our advanced tunnel technology.
-          </p>
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight mb-8 tracking-tight drop-shadow-2xl whitespace-normal lg:whitespace-nowrap break-words italic px-4">
+              Catch The Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-cwCyan to-cwPink filter drop-shadow-lg pr-1">Wave</span>
+            </h1>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#packages"
-              className="group relative px-8 py-4 rounded-full overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right text-white font-bold"
-            >
-              <span className="relative flex items-center gap-2">
-                View Packages <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </a>
-            <a
-              href="#locations"
-              className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-white/20 transition-all duration-300"
-            >
-              Find Location
-            </a>
-          </div>
-        </motion.div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="#packages"
+                className="group relative px-8 py-4 rounded-full overflow-hidden shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right text-white font-bold italic tracking-wide"
+              >
+                <span className="relative flex items-center gap-2">
+                  View Packages <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
+              <a
+                href="#locations"
+                className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:bg-white/20 transition-all duration-300 italic tracking-wide"
+              >
+                Find Location
+              </a>
+            </div>
+
+          </motion.div>
+        </div>
+
+        {/* Quick Package Preview - Attached to Bottom */}
+        <div className="w-full max-w-5xl mx-auto px-4 relative z-20 flex flex-col items-center">
+          <span className="text-white/80 text-sm md:text-base font-bold uppercase tracking-widest mb-4 italic drop-shadow-md">
+            Check out our packages
+          </span>
+          <QuickPackageCarousel />
+        </div>
       </div>
     </div>
   );

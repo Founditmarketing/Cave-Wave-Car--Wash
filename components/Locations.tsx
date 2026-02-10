@@ -8,21 +8,21 @@ const locations = [
     address: '1234 Lamar Avenue, Paris, TX',
     phone: '(903) 555-0101',
     hours: 'Mon-Sun: 7am - 8pm',
-    image: 'https://images.unsplash.com/photo-1552934526-c820637d7211?auto=format&fit=crop&q=80&w=800',
+    image: '/location1.jpg',
   },
   {
     city: 'Texarkana',
     address: '5678 Summerhill Road, Texarkana, TX',
     phone: '(903) 555-0102',
     hours: 'Mon-Sun: 7am - 8pm',
-    image: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&q=80&w=800',
+    image: '/location2.jpg',
   },
   {
     city: 'Longview',
     address: '9101 Gilmer Road, Longview, TX',
     phone: '(903) 555-0103',
     hours: 'Mon-Sun: 7am - 8pm',
-    image: 'https://images.unsplash.com/photo-1605164599901-f8a1464a2c87?auto=format&fit=crop&q=80&w=800',
+    image: '/location3.jpg',
   },
 ];
 
@@ -47,14 +47,14 @@ export const Locations: React.FC = () => {
             >
               <div className="h-64 overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent z-10" />
-                <img 
-                  src={loc.image} 
-                  alt={loc.city} 
+                <img
+                  src={loc.image}
+                  alt={loc.city}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <h3 className="absolute bottom-6 left-6 text-4xl font-bold text-white z-20">{loc.city}</h3>
               </div>
-              
+
               <div className="p-8 bg-white space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-cwPink/10 flex items-center justify-center flex-shrink-0">

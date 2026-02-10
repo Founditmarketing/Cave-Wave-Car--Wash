@@ -55,99 +55,82 @@ export const CarDiagram: React.FC = () => {
   const [activePoint, setActivePoint] = useState<TechPoint | null>(null);
 
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden" id="tech-specs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <ScanLine className="w-5 h-5 text-cwCyan animate-pulse" />
-            <h2 className="text-cwCyan font-bold tracking-widest uppercase text-lg">Cave Tech</h2>
-          </div>
-          <h3 className="text-5xl md:text-7xl font-extrabold text-white">
+    <section id="tech-specs" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#001f3f] to-[#003366] w-full">
+      {/* Background Grid Pattern - Made subtle */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+
+      <div className="w-full relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-cwCyan font-bold tracking-widest uppercase text-lg">Cave Tech</h2>
+          <h3 className="text-5xl md:text-7xl font-extrabold text-white mt-2 drop-shadow-lg">
             Advanced Cleaning Tech
           </h3>
-          <p className="mt-4 text-slate-400 text-xl max-w-2xl mx-auto">
-            Interactive diagnostic of our advanced cleaning technology.
-          </p>
         </div>
 
-        {/* Diagram Container */}
-        <div className="relative w-full rounded-3xl bg-[#0f1623] border border-slate-800 shadow-2xl overflow-hidden">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
+          {/* The Car Image - Full Width Feel */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full h-full flex items-center justify-center"
+          >
+            {/* Glow effect behind car - Subtle */}
+            <div className="absolute inset-0 bg-cwCyan/10 blur-3xl rounded-full opacity-20 pointer-events-none select-none"></div>
 
-          {/* Background Grid - Technical feel */}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-[#001f3f] to-slate-900 opacity-80 pointer-events-none"></div>
+            <img
+              src="/car-diagram.png"
+              alt="Vehicle Schematic"
+              className="w-full h-auto object-contain drop-shadow-2xl opacity-100 mix-blend-normal hover:scale-[1.01] transition-transform duration-500"
+            />
+          </motion.div>
 
-          <div className="relative w-full aspect-[16/9] md:aspect-[2.2/1] flex items-center justify-center p-8 md:p-12">
-
-            {/* Main Car Image - Sleek Side Profile */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="relative z-10 w-full max-w-5xl"
-            >
-
-              {/* Glow effect behind car */}
-              <div className="absolute inset-0 bg-cwCyan/20 blur-3xl rounded-full opacity-30 pointer-events-none select-none"></div>
-
-              <img
-                src="/car-diagram.png"
-                alt="Vehicle Schematic"
-                className="w-full h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] opacity-90 mix-blend-screen"
-              />
-            </motion.div>
-
-            {/* Interactive Points */}
-            {points.map((point) => (
-              <motion.button
-                key={point.id}
-                style={{ top: point.top, left: point.left }}
-                className="absolute z-30 group"
-                onClick={() => setActivePoint(point)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="relative flex items-center justify-center w-8 h-8 md:w-12 md:h-12 bg-slate-900/80 backdrop-blur-md rounded-full shadow-[0_0_15px_rgba(6,217,245,0.5)] border border-cwCyan cursor-pointer">
-                  <Plus className={`w-4 h-4 md:w-6 md:h-6 text-cwCyan transition-transform duration-300 ${activePoint?.id === point.id ? 'rotate-45' : ''}`} />
-                  <span className="absolute inset-0 rounded-full border border-cwCyan animate-ping opacity-50"></span>
-                </div>
-                {/* Tooltip Label */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 px-4 py-1.5 bg-black/80 backdrop-blur-md border border-slate-700 text-cwCyan text-xs md:text-sm font-bold rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none tracking-wider">
-                  {point.label}
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Info Card Overlay */}
+          {/* Interactive Points */}
           <AnimatePresence>
-            {activePoint && (
-              <motion.div
-                initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                className="absolute bottom-6 left-6 right-6 md:left-auto md:right-8 md:bottom-8 md:w-96 bg-slate-900/95 backdrop-blur-xl p-6 rounded-2xl shadow-2xl border border-cwCyan/30 z-40"
+            {points.map((point) => (
+              <div
+                key={point.id}
+                className="absolute"
+                style={{ top: point.top, left: point.left }}
               >
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl filter drop-shadow-[0_0_10px_rgba(253,23,247,0.5)]">{activePoint.icon}</span>
-                    <h4 className="text-xl font-bold text-white">{activePoint.title}</h4>
-                  </div>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setActivePoint(null); }}
-                    className="p-1 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-                <p className="text-slate-300 leading-relaxed text-sm">
-                  {activePoint.description}
-                </p>
-                <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-cwCyan uppercase tracking-widest">Analysis Complete</span>
-                  <button className="text-xs font-bold text-cwPink hover:text-white transition-colors uppercase tracking-wider">Full Specs +</button>
-                </div>
-              </motion.div>
-            )}
+                <motion.button
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActivePoint(activePoint === point.id ? null : point.id)}
+                  className={`relative w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(6,217,245,0.6)] transition-colors duration-300 z-20 ${activePoint === point.id ? 'bg-cwPink text-white ring-4 ring-cwPink/30' : 'bg-cwCyan text-slate-900 animate-pulse'
+                    }`}
+                >
+                  <div className="absolute inset-0 rounded-full bg-current opacity-75 animate-ping"></div>
+                  <span className="relative z-10 text-xs md:text-sm font-bold">+</span>
+                </motion.button>
+
+                <AnimatePresence>
+                  {activePoint === point.id && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                      className="absolute left-1/2 -translate-x-1/2 mt-4 w-64 md:w-80 bg-slate-900/90 backdrop-blur-xl p-6 rounded-2xl border border-cwCyan/30 shadow-2xl z-50 text-left"
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="text-2xl">{point.icon}</div>
+                        <div>
+                          <h4 className="text-cwCyan font-bold text-lg leading-none">{point.title}</h4>
+                          <span className="text-xs text-slate-400 uppercase tracking-wider">{point.label}</span>
+                        </div>
+                      </div>
+                      <p className="text-slate-300 text-sm leading-relaxed">{point.description}</p>
+
+                      {/* Decorative Corner */}
+                      <div className="absolute top-0 right-0 p-2">
+                        <div className="w-2 h-2 bg-cwCyan rounded-full opacity-50"></div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
           </AnimatePresence>
         </div>
       </div>

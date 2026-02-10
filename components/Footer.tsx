@@ -6,14 +6,14 @@ export const Footer: React.FC = () => {
     <footer className="bg-slate-900 text-white pt-16 pb-8 border-t-4 border-cwCyan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          
+
           <div className="col-span-1 md:col-span-1">
-             <span className="font-extrabold text-3xl tracking-tight block mb-4">
-               Cave<span className="text-cwCyan">Wave</span>
-             </span>
-             <p className="text-slate-400 text-sm leading-relaxed">
-               The ultimate car wash experience. Modern technology, premium soaps, and a commitment to our community.
-             </p>
+            <span className="font-extrabold text-3xl tracking-tight block mb-4">
+              Cave<span className="text-cwCyan">Wave</span>
+            </span>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              The ultimate car wash experience. Modern technology, premium soaps, and a commitment to our community.
+            </p>
           </div>
 
           <div>
@@ -49,11 +49,21 @@ export const Footer: React.FC = () => {
                 <Twitter className="w-5 h-5" />
               </a>
             </div>
-            <a href="mailto:info@cavewave.com" className="flex items-center gap-2 text-slate-300 hover:text-white">
+            <a href="mailto:info@cavewave.com" className="flex items-center gap-2 text-slate-300 hover:text-white mb-6">
               <Mail className="w-4 h-4" /> info@cavewave.com
             </a>
           </div>
 
+        </div>
+
+        {/* Centered QR Code Section */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700/50 shadow-2xl flex flex-col items-center">
+            <p className="text-xs font-bold text-cwCyan uppercase tracking-wider mb-3 text-center">Scan to Join Club</p>
+            <div className="bg-white p-3 rounded-xl">
+              <img src="/text_club_qr_code.jpg" alt="Join Club QR Code" className="w-32 h-32 object-contain" />
+            </div>
+          </div>
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">

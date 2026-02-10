@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
               <img
                 src="/logo.png"
                 alt="Cave Wave Car Wash"
-                className={`transition-all duration-300 object-contain ${scrolled ? 'h-10' : 'h-20 sm:h-28 mt-4'}`}
+                className={`transition-all duration-300 object-contain ${scrolled ? 'h-10 w-auto' : 'w-32 md:w-40 lg:w-48 mt-4'}`}
               />
             </div>
 
