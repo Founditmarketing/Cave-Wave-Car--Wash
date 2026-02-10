@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
               <img
                 src="/logo.png"
                 alt="Cave Wave Car Wash"
-                className={`transition-all duration-300 object-contain ${scrolled ? 'h-12' : 'h-24 sm:h-32 mt-8'}`}
+                className={`transition-all duration-300 object-contain ${scrolled ? 'h-10' : 'h-20 sm:h-28 mt-4'}`}
               />
             </div>
 
@@ -81,8 +81,8 @@ export const Navbar: React.FC = () => {
                     <a
                       href={link.href}
                       className={`px-5 py-2 rounded-full font-bold transition-all shadow-md active:scale-95 hover:shadow-lg ${link.secondary
-                          ? 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-slate-900'
-                          : 'bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right transition-[background-position] duration-500 text-white'
+                        ? 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-slate-900'
+                        : 'bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right transition-[background-position] duration-500 text-white'
                         }`}
                     >
                       {link.label}
@@ -158,8 +158,8 @@ export const Navbar: React.FC = () => {
                       <a
                         href={link.href}
                         className={`block px-3 py-2 text-base font-medium rounded-md ${link.isButton
-                            ? 'bg-gradient-to-r from-cwCyan to-cwPink text-white text-center mt-4'
-                            : 'text-slate-300 hover:text-cwCyan hover:bg-white/5'
+                          ? 'bg-gradient-to-r from-cwCyan to-cwPink text-white text-center mt-4'
+                          : 'text-slate-300 hover:text-cwCyan hover:bg-white/5'
                           }`}
                         onClick={() => setIsOpen(false)}
                       >

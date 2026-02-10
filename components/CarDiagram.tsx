@@ -16,8 +16,8 @@ const points: TechPoint[] = [
   {
     id: 'wheels',
     label: 'Wheel Tech',
-    top: '62%',
-    left: '21%',
+    top: '66%',
+    left: '18%',
     title: 'Ceramic Wheel Blaster',
     description: 'Our high-pressure orbital spinners remove 99% of brake dust, followed by a ceramic coating that keeps rims shiny and repels dirt for weeks.',
     icon: '🛞'
@@ -26,7 +26,7 @@ const points: TechPoint[] = [
     id: 'body',
     label: 'Paint Protection',
     top: '45%',
-    left: '50%',
+    left: '45%',
     title: 'Graphene Wax Shield',
     description: 'More durable than Carnauba, our Graphene infusion bonds to your clear coat, providing a hydrophobic layer that sheds water instantly.',
     icon: '✨'
@@ -34,8 +34,8 @@ const points: TechPoint[] = [
   {
     id: 'glass',
     label: 'Vision Clear',
-    top: '28%',
-    left: '52%',
+    top: '25%',
+    left: '48%',
     title: 'Rain Repellent Bonding',
     description: 'A molecular bond created on your windshield that causes rain to bead up and roll off, improving visibility during storms by over 50%.',
     icon: '🌧️'
@@ -43,8 +43,8 @@ const points: TechPoint[] = [
   {
     id: 'chassis',
     label: 'Underbody',
-    top: '75%',
-    left: '50%',
+    top: '78%',
+    left: '45%',
     title: 'Rust Inhibitor Spray',
     description: 'We wash where you can\'t see. Our high-pressure undercarriage flush removes road salts and grime to prevent corrosion.',
     icon: '🛡️'
@@ -60,10 +60,10 @@ export const CarDiagram: React.FC = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
             <ScanLine className="w-5 h-5 text-cwCyan animate-pulse" />
-            <h2 className="text-cwCyan font-bold tracking-widest uppercase text-lg">System Analysis</h2>
+            <h2 className="text-cwCyan font-bold tracking-widest uppercase text-lg">Cave Tech</h2>
           </div>
           <h3 className="text-5xl md:text-7xl font-extrabold text-white">
-            Precision Tech Specs
+            Advanced Cleaning Tech
           </h3>
           <p className="mt-4 text-slate-400 text-xl max-w-2xl mx-auto">
             Interactive diagnostic of our advanced cleaning technology.
@@ -74,11 +74,7 @@ export const CarDiagram: React.FC = () => {
         <div className="relative w-full rounded-3xl bg-[#0f1623] border border-slate-800 shadow-2xl overflow-hidden">
 
           {/* Background Grid - Technical feel */}
-          <div className="absolute inset-0 grid grid-cols-[repeat(20,1fr)] grid-rows-[repeat(10,1fr)] opacity-[0.1] pointer-events-none">
-            {Array.from({ length: 200 }).map((_, i) => (
-              <div key={i} className="border-[0.5px] border-cwCyan/30"></div>
-            ))}
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-[#001f3f] to-slate-900 opacity-80 pointer-events-none"></div>
 
           <div className="relative w-full aspect-[16/9] md:aspect-[2.2/1] flex items-center justify-center p-8 md:p-12">
 
@@ -89,17 +85,9 @@ export const CarDiagram: React.FC = () => {
               transition={{ duration: 1 }}
               className="relative z-10 w-full max-w-5xl"
             >
-              {/* Scanning Laser Effect */}
-              <motion.div
-                className="absolute top-[-20%] bottom-[-20%] w-1 bg-cwCyan/50 shadow-[0_0_30px_3px_rgba(6,217,245,0.6)] z-20 pointer-events-none"
-                animate={{ left: ['0%', '100%', '0%'] }}
-                transition={{ duration: 6, ease: "linear", repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute top-[-20%] bottom-[-20%] w-32 bg-gradient-to-r from-transparent via-cwCyan/10 to-transparent z-10 pointer-events-none mix-blend-screen"
-                animate={{ left: ['-5%', '95%', '-5%'] }}
-                transition={{ duration: 6, ease: "linear", repeat: Infinity }}
-              />
+
+              {/* Glow effect behind car */}
+              <div className="absolute inset-0 bg-cwCyan/20 blur-3xl rounded-full opacity-30 pointer-events-none select-none"></div>
 
               <img
                 src="/car-diagram.png"

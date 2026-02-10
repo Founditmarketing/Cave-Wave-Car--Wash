@@ -9,13 +9,17 @@ export const Hero: React.FC = () => {
 
   return (
     <div className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-slate-900">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0 w-full h-full">
-        <img
-          src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=1920"
-          alt="Clean luxury car"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
-        />
+        >
+          <source src="/Video-1.mp4" type="video/mp4" />
+        </video>
         {/* Dark Overlay for Text Contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/50 to-slate-900/90"></div>
       </div>
