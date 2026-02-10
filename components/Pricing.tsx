@@ -48,8 +48,8 @@ export const Pricing: React.FC = () => {
         </div>
 
         {/* Toggle Switch */}
-        <div className="flex justify-center items-center gap-6 mb-16">
-          <span className={`font-bold text-xl cursor-pointer transition-colors ${!isMonthly ? 'text-slate-900' : 'text-slate-400'}`} onClick={() => setIsMonthly(false)}>Single Wash</span>
+        <div className="flex justify-center items-center gap-4 sm:gap-6 mb-16">
+          <span className={`font-bold text-lg sm:text-xl cursor-pointer transition-colors flex items-center h-12 ${!isMonthly ? 'text-slate-900' : 'text-slate-400'}`} onClick={() => setIsMonthly(false)}>Single Wash</span>
           <button
             onClick={() => setIsMonthly(!isMonthly)}
             className="relative w-24 h-12 rounded-full bg-slate-200 p-1 transition-colors duration-300 focus:outline-none shadow-inner"
@@ -62,7 +62,7 @@ export const Pricing: React.FC = () => {
               style={{ x: isMonthly ? 48 : 0 }}
             />
           </button>
-          <span className={`font-bold text-xl cursor-pointer transition-colors ${isMonthly ? 'text-slate-900' : 'text-slate-400'}`} onClick={() => setIsMonthly(true)}>Unlimited Club</span>
+          <span className={`font-bold text-lg sm:text-xl cursor-pointer transition-colors flex items-center h-12 ${isMonthly ? 'text-slate-900' : 'text-slate-400'}`} onClick={() => setIsMonthly(true)}>Unlimited Club</span>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
@@ -77,8 +77,8 @@ export const Pricing: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.2 } }}
                 className={`relative rounded-[2rem] p-8 transition-all duration-300 flex flex-col h-full ${isPremium
-                    ? 'bg-slate-900 text-white shadow-2xl border-4 border-cwCyan lg:-mt-6 z-10 pb-12'
-                    : 'bg-white text-slate-900 shadow-xl hover:shadow-2xl border-2 border-cwCyan/20'
+                  ? 'bg-slate-900 text-white shadow-2xl border-4 border-cwCyan lg:-mt-6 z-10 pb-12'
+                  : 'bg-white text-slate-900 shadow-xl hover:shadow-2xl border-2 border-cwCyan/20'
                   }`}
               >
                 {isPremium && (
@@ -134,8 +134,8 @@ export const Pricing: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${isPremium
-                      ? 'bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right transition-[background-position] duration-500 text-white shadow-lg shadow-cwCyan/25'
-                      : 'bg-slate-100 text-slate-800 hover:bg-slate-200'
+                    ? 'bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right transition-[background-position] duration-500 text-white shadow-lg shadow-cwCyan/25'
+                    : 'bg-slate-100 text-slate-800 hover:bg-slate-200'
                     }`}
                 >
                   Select {isMonthly ? 'Plan' : 'Wash'}

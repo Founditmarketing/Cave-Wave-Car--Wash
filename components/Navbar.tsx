@@ -46,8 +46,6 @@ export const Navbar: React.FC = () => {
           <span className="hidden sm:inline text-slate-300">Follow the Wave:</span>
           <div className="flex items-center gap-3">
             <a href="#" className="hover:text-cwPink transition-colors"><Facebook className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-cwPink transition-colors"><Instagram className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-cwPink transition-colors"><Twitter className="w-4 h-4" /></a>
           </div>
         </div>
       </div>
@@ -127,7 +125,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className={`${scrolled && !isOpen ? 'text-slate-900' : 'text-white'} hover:text-cwCyan focus:outline-none transition-colors z-50`}
               >
-                {isOpen ? <X className="w-8 h-8 relative z-50 text-white" /> : <Menu className="w-8 h-8" />}
+                {isOpen ? <X className="w-8 h-8 relative z-50 text-cwPink" /> : <Menu className="w-8 h-8" />}
               </button>
             </div>
           </div>
@@ -142,7 +140,7 @@ export const Navbar: React.FC = () => {
               exit={{ height: 0, opacity: 0 }}
               className="xl:hidden bg-slate-900 shadow-xl overflow-hidden border-t border-white/10"
             >
-              <div className="px-4 pt-2 pb-8 space-y-1">
+              <div className="px-4 pt-2 pb-8 space-y-1 max-h-[70vh] overflow-y-auto">
                 {navLinks.map((link) => (
                   <div key={link.label}>
                     {link.isDropdown ? (

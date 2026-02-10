@@ -111,7 +111,7 @@ export const CarDiagram: React.FC = () => {
                       initial={{ opacity: 0, y: 10, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                      className="absolute left-1/2 -translate-x-1/2 mt-4 w-64 md:w-80 bg-slate-900/90 backdrop-blur-xl p-6 rounded-2xl border border-cwCyan/30 shadow-2xl z-50 text-left"
+                      className="fixed left-4 right-4 bottom-4 md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-auto md:mt-4 w-auto md:w-80 bg-slate-900/95 backdrop-blur-xl p-6 rounded-2xl border border-cwCyan/30 shadow-2xl z-50 text-left"
                     >
                       <div className="flex items-center gap-3 mb-3">
                         <div className="text-2xl">{point.icon}</div>

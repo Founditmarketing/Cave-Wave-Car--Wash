@@ -16,6 +16,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Outfit"', 'sans-serif'],
+        oswald: ['"Oswald"', 'sans-serif'],
         russo: ['"Russo One"', 'sans-serif'],
       },
       animation: {

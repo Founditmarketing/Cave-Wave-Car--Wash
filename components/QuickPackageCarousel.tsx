@@ -80,13 +80,13 @@ export const QuickPackageCarousel: React.FC = () => {
         <div className="absolute inset-0 flex items-center justify-between px-4 md:px-12 pointer-events-none z-40 max-w-5xl mx-auto">
           <button
             onClick={prevPackage}
-            className="pointer-events-auto p-3 rounded-full bg-white/40 hover:bg-white backdrop-blur-md shadow-lg border border-white/50 text-slate-700 hover:text-cwCyan hover:scale-110 active:scale-95 transition-all"
+            className="pointer-events-auto p-3 rounded-full bg-white/40 hover:bg-white backdrop-blur-md shadow-lg border border-white/50 text-slate-700 hover:text-cwCyan hover:scale-110 active:scale-95 transition-all mt-32 md:mt-0"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextPackage}
-            className="pointer-events-auto p-3 rounded-full bg-white/40 hover:bg-white backdrop-blur-md shadow-lg border border-white/50 text-slate-700 hover:text-cwCyan hover:scale-110 active:scale-95 transition-all"
+            className="pointer-events-auto p-3 rounded-full bg-white/40 hover:bg-white backdrop-blur-md shadow-lg border border-white/50 text-slate-700 hover:text-cwCyan hover:scale-110 active:scale-95 transition-all mt-32 md:mt-0"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
