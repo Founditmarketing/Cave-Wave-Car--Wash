@@ -111,9 +111,9 @@ export const QuickPackageCarousel: React.FC = () => {
                 }}
                 transition={{
                   type: "spring",
-                  stiffness: 300,
-                  damping: 30,
-                  mass: 1 // Optimize spring
+                  stiffness: 200, // Softer spring for more visible movement
+                  damping: 25,
+                  mass: 2 // Heavier mass to make movement slower/more deliberate
                 }}
                 className={`
                     absolute top-1/2 -translate-y-1/2

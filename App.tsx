@@ -13,9 +13,10 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Ticket } from 'lucide-react';
 
 const App: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-  
+  const [loading, setLoading] = useState(true);
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [showExplosion, setShowExplosion] = useState(false);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -26,24 +27,31 @@ const App: React.FC = () => {
   useEffect(() => {
     // Simulate loading time
     const timer = setTimeout(() => {
-      setIsLoading(false);
-      
+      setLoading(false);
+
       // Show modal shortly after loading finishes
       setTimeout(() => {
-        setShowModal(true);
-      }, 1500);
-      
+        setShowLocationModal(true);
+      }, 500);
+
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
+  const handleModalClose = () => {
+    setShowLocationModal(false);
+    setShowExplosion(true);
+    // Hide explosion after animation
+    setTimeout(() => setShowExplosion(false), 1500);
+  };
+
   return (
     <div className="font-sans text-slate-800 bg-white min-h-screen relative selection:bg-cwPink selection:text-white">
       <AnimatePresence>
-        {isLoading && <LoadingScreen />}
+        {loading && <LoadingScreen />}
+        {showLocationModal && <LocationModal onClose={handleModalClose} />}
+        {showExplosion && <BubbleExplosion />}
       </AnimatePresence>
-
-      <LocationModal isOpen={showModal} onClose={() => setShowModal(false)} />
 
       <motion.div
         className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cwCyan to-cwPink origin-left z-[60]"
@@ -67,7 +75,7 @@ const App: React.FC = () => {
       <Footer />
 
       {/* Floating Action Button */}
-      {!isLoading && (
+      {!loading && (
         <motion.a
           href="#packages"
           initial={{ scale: 0, opacity: 0 }}

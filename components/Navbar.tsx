@@ -54,13 +54,13 @@ export const Navbar: React.FC = () => {
 
       {/* Main Navbar */}
       <nav
-        className={`w-full transition-all duration-300 relative ${scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
+        className={`w-full transition-all duration-300 relative ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'
           }`}
       >
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+            <div className="flex-shrink-0 flex items-center cursor-pointer mr-4" onClick={() => window.scrollTo(0, 0)}>
               <img
                 src="/logo.png"
                 alt="Cave Wave Car Wash"
@@ -81,7 +81,9 @@ export const Navbar: React.FC = () => {
                     <a
                       href={link.href}
                       className={`px-5 py-2 rounded-full font-bold transition-all shadow-md active:scale-95 hover:shadow-lg ${link.secondary
-                        ? 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-slate-900'
+                        ? scrolled
+                          ? 'bg-transparent text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white'
+                          : 'bg-transparent text-white border-2 border-white hover:bg-white hover:text-slate-900'
                         : 'bg-gradient-to-r from-cwCyan via-cwPink to-cwCyan bg-[length:200%_auto] hover:bg-right transition-[background-position] duration-500 text-white'
                         }`}
                     >
@@ -90,7 +92,7 @@ export const Navbar: React.FC = () => {
                   ) : (
                     <a
                       href={link.href}
-                      className="text-white hover:text-cwCyan font-semibold flex items-center gap-1 transition-colors drop-shadow-md"
+                      className={`${scrolled ? 'text-slate-800 hover:text-cwPink' : 'text-white hover:text-cwCyan'} font-semibold flex items-center gap-1 transition-colors drop-shadow-sm`}
                     >
                       {link.label}
                       {link.isDropdown && <ChevronDown className="w-4 h-4" />}
@@ -102,13 +104,13 @@ export const Navbar: React.FC = () => {
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute top-full left-0 w-48 bg-slate-900 shadow-xl rounded-lg overflow-hidden py-2 mt-2 border-t-4 border-cwCyan ring-1 ring-white/10"
+                      className="absolute top-full left-0 w-48 bg-white shadow-xl rounded-lg overflow-hidden py-2 mt-2 border-t-4 border-cwCyan ring-1 ring-black/5"
                     >
                       {link.dropdownItems?.map((item) => (
                         <a
                           key={item}
                           href="#"
-                          className="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10 hover:text-cwPink transition-colors"
+                          className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-cwPink transition-colors"
                         >
                           {item}
                         </a>
@@ -123,9 +125,9 @@ export const Navbar: React.FC = () => {
             <div className="xl:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white hover:text-cwCyan focus:outline-none"
+                className={`${scrolled && !isOpen ? 'text-slate-900' : 'text-white'} hover:text-cwCyan focus:outline-none transition-colors z-50`}
               >
-                {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                {isOpen ? <X className="w-8 h-8 relative z-50 text-white" /> : <Menu className="w-8 h-8" />}
               </button>
             </div>
           </div>
